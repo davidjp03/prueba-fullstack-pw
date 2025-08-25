@@ -55,16 +55,17 @@ import { prisma } from "@/lib/prisma";
  *         description: Admin access required
  */
 
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const session = await auth.api.getSession({ headers: request.headers });
   if (!session || session.user.role !== "ADMIN") {
     return NextResponse.json({ error: "Admin access required" }, { status: 403 });
   }
 
   const { concept, amount, type } = await request.json();
+  const { id } = await params;
 
   const movement = await prisma.movement.update({
-    where: { id: params.id },
+    where: { id },
     data: { concept, amount, type },
     include: { user: { select: { name: true } } }
   });
@@ -72,12 +73,13 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
   return NextResponse.json(movement);
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const session = await auth.api.getSession({ headers: request.headers });
   if (!session || session.user.role !== "ADMIN") {
     return NextResponse.json({ error: "Admin access required" }, { status: 403 });
   }
 
-  await prisma.movement.delete({ where: { id: params.id } });
+  const { id } = await params;
+  await prisma.movement.delete({ where: { id } });
   return NextResponse.json({ success: true });
 }
