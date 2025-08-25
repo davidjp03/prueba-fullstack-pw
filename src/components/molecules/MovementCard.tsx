@@ -45,7 +45,7 @@ export default function MovementCard({ movement, onUpdate }: MovementCardProps) 
   const formattedAmount = `$${Number(movement.amount).toFixed(2)}`;
   
   // AUTHORIZATION: Check if current user is admin
-  const isAdmin = (session?.user as any)?.role === "ADMIN";
+  const isAdmin = (session?.user as { role?: string })?.role === "ADMIN";
 
   /**
    * Handles movement deletion with confirmation
