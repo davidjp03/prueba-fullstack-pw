@@ -50,17 +50,23 @@ docker run --name postgres-db -e POSTGRES_PASSWORD=password -e POSTGRES_DB=finan
 
 ### 4. Environment Configuration
 
-Create `.env.local` file in the root directory:
+Copy the example environment file and configure your variables:
+
+```bash
+cp .env.example .env.local
+```
+
+Edit `.env.local` with your actual values:
 
 ```env
 # Database
 DATABASE_URL="postgresql://username:password@localhost:5432/financial_management"
 
 # Authentication
-BETTER_AUTH_SECRET="your-secret-key-here"
+BETTER_AUTH_SECRET="your-secret-key-here-min-32-chars"
 BETTER_AUTH_URL="http://localhost:3000"
 
-# Optional: For production
+# Application URL
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
 ```
 
