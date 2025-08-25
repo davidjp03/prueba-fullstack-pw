@@ -15,7 +15,7 @@ export default function DownloadCSVButton() {
       // Create CSV content
       const csvContent = [
         "Month,Income,Expense,Balance",
-        ...Object.entries(data.monthlyData).map(([month, values]: [string, { income: number; expense: number }]) => 
+        ...Object.entries(data.monthlyData as Record<string, { income: number; expense: number }>).map(([month, values]) => 
           `${month},${values.income},${values.expense},${values.income - values.expense}`
         )
       ].join("\n");
