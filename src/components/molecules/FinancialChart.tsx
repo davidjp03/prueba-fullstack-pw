@@ -93,8 +93,8 @@ export default function FinancialChart() {
       y: {
         beginAtZero: true,
         ticks: {
-          callback: function(value: any) {
-            return "$" + value.toFixed(2);
+          callback: function(value: string | number) {
+            return "$" + Number(value).toFixed(2);
           },
         },
       },
