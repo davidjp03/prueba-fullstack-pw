@@ -36,13 +36,13 @@ export default function DocsPage() {
               </div>
               
               <div className="border rounded p-4">
-                <h3 className="font-medium text-orange-600">PUT /api/movements/{id}</h3>
+                <h3 className="font-medium text-orange-600">PUT /api/movements/&#123;id&#125;</h3>
                 <p className="text-sm text-gray-600 mt-1">Update a movement</p>
                 <p className="text-xs text-gray-500 mt-2">Access: Admin only</p>
               </div>
               
               <div className="border rounded p-4">
-                <h3 className="font-medium text-red-600">DELETE /api/movements/{id}</h3>
+                <h3 className="font-medium text-red-600">DELETE /api/movements/&#123;id&#125;</h3>
                 <p className="text-sm text-gray-600 mt-1">Delete a movement</p>
                 <p className="text-xs text-gray-500 mt-2">Access: Admin only</p>
               </div>
@@ -60,7 +60,7 @@ export default function DocsPage() {
               </div>
               
               <div className="border rounded p-4">
-                <h3 className="font-medium text-orange-600">PUT /api/users/{id}</h3>
+                <h3 className="font-medium text-orange-600">PUT /api/users/&#123;id&#125;</h3>
                 <p className="text-sm text-gray-600 mt-1">Update user name and role</p>
                 <p className="text-xs text-gray-500 mt-2">Access: Admin only</p>
               </div>
