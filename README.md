@@ -245,6 +245,13 @@ src/
 
 ### Common Issues
 
+**Vercel Deployment Error (React Version Conflicts)**
+```bash
+# The .npmrc file should resolve this automatically
+# If issues persist, check that .npmrc contains:
+legacy-peer-deps=true
+```
+
 **Database Connection Error**
 ```bash
 # Check DATABASE_URL format
