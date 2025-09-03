@@ -93,7 +93,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### 7. Create First Admin User
 
-1. Register a new account at `/sign-up`
+1. Login with your account at `/login`
 2. Manually update the user role in the database:
 
 ```sql
